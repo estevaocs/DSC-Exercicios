@@ -12,8 +12,8 @@ public class Exercicio2 {
     public static void main(String[] args) {
         File arquivo = new File("src/numeros.txt");
         HashMap<String,Integer> map = new HashMap<>();
+        List<String> maiores = new ArrayList();
         Integer max = 0;
-        String maior = null;
         try  {
             FileReader file = new FileReader(arquivo);
             BufferedReader reader =  new BufferedReader(file);
@@ -22,20 +22,38 @@ public class Exercicio2 {
                     Integer num = Integer.parseInt(s);
                     if (num.compareTo(Integer.valueOf(255)) <= 0) {
                         //System.out.println(s);
-                        if(map.get(s) == null) {
+                        Integer x = map.get(s);
+                        if(x == null) {
                             map.put(s,Integer.valueOf(1));
+                            Integer m = map.get(s);
+                            int n = max.compareTo(m);
+                            if (n < 0) {
+                                max = m;
+                                maiores = new ArrayList<>();
+                                maiores.add(s);
+                            } else if (n == 0) {
+                                max = m;
+                                maiores.add(s);
+                            }
                         } else {
                             Integer m = map.get(s);
                             map.put(s, m+1);
-                            if (max.compareTo(m+1) == 1) {
+                            int n = max.compareTo(m+1);
+                            if (n < 0) {
                                 max = m+1;
-                                maior = s;
+                                maiores = new ArrayList<>();
+                                maiores.add(s);
+                            } else if (n == 0) {
+                                max = m+1;
+                                maiores.add(s);
                             }
                         }
                     }
                 }
             }
-            System.out.println(map.);
+            System.out.printf("os numeros que mais se repetiram são: ");
+           maiores.forEach(s -> System.out.printf(s +", "));
+            System.out.print("\nrepetindo: " + max);
 
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n",
