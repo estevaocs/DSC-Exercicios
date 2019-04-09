@@ -1,3 +1,5 @@
+package Exercicio2;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -21,7 +23,6 @@ public class Exercicio2 {
                 if (!s.isEmpty()) {
                     Integer num = Integer.parseInt(s);
                     if (num.compareTo(Integer.valueOf(255)) <= 0) {
-                        //System.out.println(s);
                         Integer x = map.get(s);
                         if(x == null) {
                             map.put(s,Integer.valueOf(1));

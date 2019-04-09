@@ -1,9 +1,9 @@
+package Exercicio3;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alunoinf_2 on 03/04/2019.
- */
+
 public class Exercicio3 {
 
     public static final int MAX = 300_000;
